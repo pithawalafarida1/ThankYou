@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Thank You System</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Oleo Script' rel='stylesheet'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="static/loadingoverlay.min.js"></script>
+    <style>
+     .card{
+    border-radius: 0;
+    box-shadow: 5px 5px 15px #b83a3b;
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+  }
+   .card:hover{
+    background-image: url('static/redtexture.jpg');
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 5px 5px 10px #b83a3b;
+  }
+  .card:hover h3,#team .card:hover i{
+    color: #fff;
+  }
+      body {
+      background: #e8cbc0;
+      background: -webkit-linear-gradient(to right, #e8cbc0, #636fa4);
+      background: linear-gradient(to right, #e8cbc0, #636fa4);
+      min-height: 100vh;
+      }
+
+      .social-link {
+          width: 30px;
+          height: 30px;
+          border: 1px solid #ddd;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #666;
+          border-radius: 50%;
+          transition: all 0.3s;
+          font-size: 0.9rem;
+      }
+
+      .social-link:hover, .social-link:focus {
+          background: #ddd;
+          text-decoration: none;
+          color: #555;
+      }
+
+      #div1
+      {
+        position:relative;
+        top: -160px;
+        left:10px;
+        height:1194px;
+        width:1000px;
+        float:left;
+        background-image: url('static/red3.jpg');
+      }
+      #div2
+      {
+        margin-left: 60px;
+        margin-top: -175px;
+        height:1194px;
+        width:800px;
+        float:left;
+        background-image: url('static/redtexture.jpg');
+      }
+      #footer
+      {
+        float:bottom;
+        bottom:0px;
+      }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      /* Style the tab */
+      .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+      }
+
+      /* Style the buttons that are used to open the tab content */
+      .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+      }
+
+      /* Change background color of buttons on hover */
+      .tab button:hover {
+        background-color: #ddd;
+      }
+
+      /* Create an active/current tablink class */
+      .tab button.active {
+        background-color: #ccc;
+      }
+
+      /* Style the tab content */
+      .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+      } 
+
+      /*scroll spy*/
+      body {
+      position: relative;
+      }
+      ul.nav-pills {
+        position: relative;
+      }
+        
+      @media screen and (max-width: 810px) {
+        #section1, #section2, #section3, #section41, #section42  {
+          margin-left: 150px;
+          }
+      }
+
+      body {
+          background-image: url('static/wesley.jpg');
+      }
+      
+
+    </style>
+  </head>
+
+
+  <body>
+    <header>
+      <div class="navbar navbar-light bg-light shadow-sm" style="background-image: url('static/redtexture.jpg'); max-height:148px;">
+        <div class="container d-flex justify-content-between">
+          <a href="/" class="navbar-brand" style="margin-left: -312px;  margin-top: -32px;">
+            <img id="brand-image" alt="Website Logo" src="static/index2.png">
+          </a>
+          <h2 style="color:white; font-family: 'Oleo Script'; margin-right: 300px;">THANK YOU SYSTEM</h2>
+        </div>
+  <div class="btn-group" style="position: relative;right: 78px;">
+  <button class="btn btn-danger btn-lg dropdown-toggle" style="border-radius: 50px;" data-toggle="dropdown">
+    Select Page 
+  </button>
+  <div class="dropdown-menu">
+    <li><a class="dropdown-item " href="eng_emp"> Employee(ENG) <img src="static/english.png" style=" position: relative;left: 20px;"></img></a></li>
+     <li><a class="dropdown-item" href="kor_emp">Employee(KOR)<img src="static/korean.png" style=" position: relative;left: 25px;"></img></a></li>
+    <li class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="eng_ven">Vendor(ENG)<img src="static/english.png" style=" position: relative;left: 40px;"></img> </a></li>
+    <li><a class="dropdown-item active" href="kor_ven">Vendor(KOR)<img src="static/korean.png" style=" position: relative;left: 40px;"></img></a></li>
+  </div>
+      </div>
+    </header>
+
+    <div class="bg-dark" style="background-image: url('static/19154.jpg'); position: relative;top: 1300px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-black">About</h4>
+            <p class="text-muted">Saying thank you – it's everyday etiquette and a simply courtesy that takes just a moment. It costs nothing, not even effort. But it's also one of the most important ways in which we interact with others, both those closest to us and those with whom we have contact for the briefest of times. Welcome to Edwards' greeting system. Employees and vendors can use this website to thank other employees and vendors.</p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-black">Contact - Smart Factory Solutions Team</h4>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-black">Email - Santosh Shinde</a></li>
+              <li><a href="#" class="text-black">Email - Sandeep Joshi</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main role="main" class="flex-shrink-0">
+    {% csrf_token %}
+      <div id = "div1" class="album py-5 bg-light" style="margin-left: 20px; margin-top: -14px;" >
+        <div class="tab" style="margin-top: -48px; margin-bottom: 0px;">
+          <button class="tablinks" onclick="openCity(event, 'Vendor')" id="defaultOpen">Vendor</button>
+        </div>
+
+        <!-- Vendor Modals Start-->
+        <div class="modal fade" id="badgemodal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Select Badge</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                <a href="#" onclick="reasonfunc1('Kudos')"><img  src="static/kudos.png"  style="width:100%;max-width:252px"></a>
+                <a href="#" onclick="reasonfunc1('Great Job')"><img  src="static/great job.png"  style="width:100%;max-width:252px"></a>
+                <a href="#" onclick="reasonfunc1('Congratulations')"><img  src="static/congratulations.png"  style="width:100%;max-width:252px"></a>
+                <a href="#" onclick="reasonfunc1('Bravo')"><img  src="static/Bravo.jpg"  style="width:100%;max-width:252px"></a>
+                <a href="#" onclick="reasonfunc1('Thank You')"><img  src="static/Thank you.png"  style="width:100%;max-width:252px"></a>
+                <a href="#" onclick="custombadgefunc1()"><img  src="static/custombadge.png"  style="width:100%;max-width:252px"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="custombadgemodal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Badge Details</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                <form method="post" autocomplete="off" id="modal_form1">
+                    <div class="form-group">
+                      <label for="ename">Enter Bagde Text</label>
+                      <input type="text" name="badgetext" id="badgetext1" class="form-control" placeholder="Badge Text" required>
+                    </div>
+                    <button class="btn btn-primary" id="badgesubmit1">Next</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="reasonmodal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Enter Details</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <form method="post" autocomplete="off" id="modal_form">
+                    <div class="form-group">
+                      <label for="reasontext">Enter Reason</label>
+                      <textarea class="form-control" id="reasontext1" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="ename">Vendor Name</label>
+                      <input type="text" name="ename" id="vname" class="form-control" placeholder="Enter Name" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="ename">Vendor Company</label>
+                      <input type="text" name="ename" id="vcomp" class="form-control" placeholder="Enter Company" required>
+                    </div>
+                    <button class="btn btn-primary" id="leftsubmit1">Next</button>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Vendor Modals End-->
+        <div id="Vendor" class="tabcontent">
+          <div class="input-group mb-6" style="margin-bottom: 0px">
+            <input type="text" id="searchbox1" class="form-control filter1" placeholder="Search Name" aria-label="employee username" aria-describedby="button-addon2">
+          </div>
+
+          <div class="p-4">
+            <div  class = "row" style="margin-left: -10px; margin-right: 0px;">
+              <div id="list-example1" class="list-group" style="float:left; margin-left: -13px;">
+                <a class="list-group-item list-group-item-action active" href="#VA" style="font-size: 10px">A</a>
+                <a class="list-group-item list-group-item-action" href="#VB" style="font-size: 10px">B</a>
+                <a class="list-group-item list-group-item-action" href="#VC" style="font-size: 10px">C</a>
+                <a class="list-group-item list-group-item-action" href="#VD" style="font-size: 10px">D</a>
+                <a class="list-group-item list-group-item-action" href="#VE" style="font-size: 10px">E</a>
+                <a class="list-group-item list-group-item-action" href="#VF" style="font-size: 10px">F</a>
+                <a class="list-group-item list-group-item-action" href="#VG" style="font-size: 10px">G</a>
+                <a class="list-group-item list-group-item-action" href="#VH" style="font-size: 10px">H</a>
+                <a class="list-group-item list-group-item-action" href="#VI" style="font-size: 10px">I</a>
+                <a class="list-group-item list-group-item-action" href="#VJ" style="font-size: 10px">J</a>
+                <a class="list-group-item list-group-item-action" href="#VK" style="font-size: 10px">K</a>
+                <a class="list-group-item list-group-item-action" href="#VL" style="font-size: 10px">L</a>
+                <a class="list-group-item list-group-item-action" href="#VM" style="font-size: 10px">M</a>
+                <a class="list-group-item list-group-item-action" href="#VN" style="font-size: 10px">N</a>
+                <a class="list-group-item list-group-item-action" href="#VO" style="font-size: 10px">O</a>
+                <a class="list-group-item list-group-item-action" href="#VP" style="font-size: 10px">P</a>
+                <a class="list-group-item list-group-item-action" href="#VQ" style="font-size: 10px">Q</a>
+                <a class="list-group-item list-group-item-action" href="#VR" style="font-size: 10px">R</a>
+                <a class="list-group-item list-group-item-action" href="#VS" style="font-size: 10px">S</a>
+                <a class="list-group-item list-group-item-action" href="#VT" style="font-size: 10px">T</a>
+                <a class="list-group-item list-group-item-action" href="#VU" style="font-size: 10px">U</a>
+                <a class="list-group-item list-group-item-action" href="#VV" style="font-size: 10px">V</a>
+                <a class="list-group-item list-group-item-action" href="#VW" style="font-size: 10px">W</a>
+                <a class="list-group-item list-group-item-action" href="#VX" style="font-size: 10px">X</a>
+                <a class="list-group-item list-group-item-action" href="#VY" style="font-size: 10px">Y</a>
+                <a class="list-group-item list-group-item-action" href="#VZ" style="font-size: 10px">Z</a>
+              </div>
+
+              <div data-spy="scroll" data-target="#list-example1" class="scrollspy-example col" data-offset="0" style = "height:1041px; overflow:auto; margin-left:-17px; right: -23px; left: 23px;" >
+                  <div class="container" id="searchcont">
+                    <div class="row text-center">
+                      {% for i in employeelist %}
+                        <div id="V{{i.name.0}}" class="card col-xl-4 col-sm-4 mb-4">
+                            <div class="card-body rounded shadow-sm py-5 px-4" onclick="cardcopy1({{forloop.counter0}})"><img id="picture1-{{forloop.counter0}}" src="{{i.picture}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm emppicture">
+                                <h5 class="mb-0 empname1">{{i.name}}</h5><span class="small text-uppercase text-muted empdept1">{{i.dept}}</span>
+                            </div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id = "div2" class="album py-5 bg-light">
+        <div class="tab" style="margin-top: -48px; margin-bottom: 0px;">
+          <button class="tablinks" onclick="openCity(event, 'Employee')" id="defaultOpen1">Send A Thank You Message!</button>
+        </div>
+        <form>
+          <div class="row">
+            <div class="col" style="padding-left: 30px; padding-top: 15px">
+              <div style="height: 300px; width: 200px;" class="bg-white rounded shadow-sm py-5 px-4"><img id="rightpicture" src="static/sample image.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 id="sender_name" class="mb-0">Employee Name</h5><span id="rightdept" class="small text-uppercase text-muted">Department</span>
+              </div>
+            </div>
+            <div class="col" style="padding-top: 15px">
+              <div style="height: 300px; width: 195px;" class="bg-white rounded shadow-sm py-5 px-4"><img id="badgeselected" style="margin-top: -25px; margin-bottom: 10px;" height="150" src="static/sample image.png" alt="" width="150">
+                <h5 id="sender_name" class="mb-0">Badge Selected</h5><span id="custombadgetext" class="small text-uppercase text-muted"></span>
+              </div>
+            </div>
+            <div class="col" style="padding-right: 30px;  padding-top: 15px">
+              <div style="height: 300px; width: 315px;" class="bg-white rounded shadow-sm py-5 px-4">
+                <h6 id="rightreas" style="margin-top: -30px" class="mb-0">Reason</h6><span id="reason" class="small text-uppercase text-muted">Your reason for sending this message</span>
+                <h6 id="rightvcom" style="padding-top: 30px;" class="mb-0">Vendor Company</h6><span id="rightvcomp" class="small text-uppercase text-muted">Name of Vendor's Company</span>
+                <h6 id="rightvnam" style="padding-top: 30px;" class="mb-0">Vendor Name</h6><span id="rightvname" class="small text-uppercase text-muted">Name of Vendor</span>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div style=" margin-top: 124px;">
+          <img src="static/thankyoucollagr.jpg">
+        </div>
+      </div>
+    </main>
+
+    <script>
+    $(document).ajaxStart(function(){
+    $.LoadingOverlay("show");
+    });
+    $(document).ajaxStop(function(){
+        $.LoadingOverlay("hide");
+    });
+    </script>
+    
+    <script>
+      document.getElementById("defaultOpen").click();
+      function openCity(evt, cityName) {
+      // Declare all variables
+      var i, tabcontent, tablinks;
+
+      // Get all elements with class="tabcontent" and hide them
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      // Get all elements with class="tablinks" and remove the class "active"
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    } 
+    </script>
+
+    <!--Vendor Functions Start-->
+    <script>
+    function cardcopy1(i){
+      console.log("entered");
+      var picture = $("#picture1-"+i).attr("src");
+      console.log(picture);
+      var name = document.getElementsByClassName("empname1");
+      name1 = name[i].innerText;
+      var dept = document.getElementsByClassName("empdept1");
+      dept1 = dept[i].innerText;
+      console.log(name1);
+      $("#sender_name").text(name1);
+      $("#rightdept").text(dept1);
+      $("#rightpicture").attr("src",picture);
+      $('#badgemodal1').modal('toggle');
+    }
+    </script>
+
+    <script>
+    function reasonfunc1(i){
+      $('#badgemodal1').modal('toggle');
+      if (i=="Kudos") {
+        var badge="static/kudos.png";
+        $("#badgeselected").attr("src",badge);
+      } else if (i=="Great Job") {
+        var badge="static/great job.png";
+        $("#badgeselected").attr("src",badge);
+      } else if (i=="Congratulations") {
+        var badge="static/congratulations.png";
+        $("#badgeselected").attr("src",badge);
+      } else if (i=="Bravo") {
+        var badge="static/Bravo.jpg";
+        $("#badgeselected").attr("src",badge);
+      } else if (i=="Thank You") {
+        var badge="static/Thank you.png";
+        $("#badgeselected").attr("src",badge);
+      }
+      $("#badgeselected").val(i);
+      $('#reasonmodal1').modal('toggle');
+      globalbadge = i;
+    }
+    </script>
+
+    <script>
+    function custombadgefunc1(){
+      $('#badgemodal1').modal('toggle');
+      var badge="static/custombadge.png";
+      $("#badgeselected").attr("src",badge);
+      $('#custombadgemodal1').modal('toggle');
+    }
+    </script>
+
+    <script>
+    $("#badgesubmit1").click(function(e){
+      e.preventDefault();
+      var badgetext = document.getElementById("badgetext1").value;
+      $("#custombadgetext").text(badgetext);
+      $('#custombadgemodal1').modal('toggle');
+      $('#reasonmodal1').modal('toggle');
+    });
+    </script>
+
+    <script>
+    $("#leftsubmit1").click(function(e){
+      e.preventDefault();
+      var vname = document.getElementById("vname").value;
+      var vcomp = document.getElementById("vcomp").value;
+      var reason = document.getElementById("reasontext1").value;
+      $("#reason").text(reason);
+      $("#rightvcomp").text(vcomp);
+      $("#rightvname").text(vname);
+      $('#reasonmodal1').modal('toggle');
+      rnraddfunc();
+    });
+    </script>
+
+    <script>
+      function rnraddfunc(){
+        var empsent1 = $("#sender_name").text();
+        if (globalbadge=="Custom Badge"){
+          badgetype1 = globalbadge;
+          badgename1 = $("#custombadgetext").text();
+        }
+        else{
+          badgetype1 = globalbadge;
+          badgename1 = globalbadge;
+        }
+        var message1 = $("#reason").text();
+        var vendorname1 = $("#rightvname").text();
+        var vendorcomp1 = $("#rightvcomp").text();
+        var today = new Date().getFullYear()+'-'+("0"+(new Date().getMonth()+1)).slice(-2)+'-'+("0"+new Date().getDate()).slice(-2);
+        $.ajax({
+            type:'POST',
+            url: 'vendor_rnr/',
+            dataType: 'json',
+            data:{
+                vendorname:vendorname1,
+                vendorcompany:vendorcomp1,
+                empsent:empsent1,
+                badgetype:badgetype1,
+                badgename:badgename1,
+                message:message1,
+                date:today,
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+            },
+            success: function(){
+              console.log("success log");
+              swal("Success!","Your Message has been sent!","success",{buttons: false,timer: 2000}).then((value) => {
+                  refreshPage();
+                 });
+            },
+            error: function(){
+              console.log("error");
+              swal("Error!", "Some error has occured, please try again later", "error");
+            }
+        });
+      }
+    </script>
+      <script>
+      function refreshPage(){
+    window.location.reload();
+}
+      </script>
+    <script>
+      $('.filter1').keyup(function (){
+        $('.card').removeClass('d-none');
+        var filter1= $(this).val();
+        if (filter1 && filter1.length>0){
+          $('.row').find('.card .card-body h5:not(:contains("'+filter1+'"))').parentsUntil('.card').parent().addClass('d-none');
+        }
+      });
+    </script>
+    <!--Vendor Functions End-->
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </body>
+</html>
+
+
+{% comment %} https://www.edwardsvacuum.com/en {% endcomment %}
+
+
+

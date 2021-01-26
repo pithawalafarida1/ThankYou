@@ -1,0 +1,571 @@
+{% extends 'index.html' %}
+
+{% block title %}Employee {% endblock title %}
+
+{% block style %}
+
+#my{
+zoom: 100%;
+}
+    
+    /*scroll spy*/
+    body {
+      position: relative;
+      }
+      ul.nav-pills {
+        position: relative;
+    }
+    #div2
+      {
+        position: relative;
+        margin-left: 525px;
+        margin-top: -50px;
+        height: 490px;
+        width: 800px;
+        background: linear-gradient(to right,#c4262e,#a22026);
+      }
+      .btn:hover
+        {
+            background-color:#c78781 !important;
+            color: white !important;
+        }
+    html, body{overflow:hidden;}
+    .edwards-top-banner--medium {
+      height: 209px;
+    }
+    .image-object-fit-ie {
+      background-size: cover;
+      background-position: center center;
+    }
+    .lazyloaded {
+      -webkit-backface-visibility: visible;
+      animation-duration: 1s;
+      transition-timing-function: ease-in-out;
+      animation-fill-mode: both;
+      animation-name: fadeIn;
+    }
+    .edwards-top-banner__img {
+      object-fit: cover;
+      height: 159px;
+      width: 1681px;
+      display: block;
+      overflow: hidden;
+    }
+    img {
+      max-width: 100%;
+      vertical-align: top;
+      border: 0;
+    }
+    .edwards-top-banner {
+      text-align: center;
+    }
+{% endblock style %}
+
+{% block body %}
+       <h1 class="edwards-bottom-banner__title top-banner__title--no-description" style="color:white; font-weight: bold; position: relative;left: 1044px;top: -50px;">Thank you System</h1> 
+      <div class="btn-group" style="position: relative; float: right; right:80px; top:-126px">
+        <button class="btn btn-secondary dropdown-toggle" style="border-radius: 50px;" data-toggle="dropdown">
+          Language 
+        </button>
+        <div class="dropdown-menu">
+          <li><a class="dropdown-item active" href="eng_emp_test">ENG<img src="static/english.png" style=" position: relative;left: 40px;"></img></a></li>
+          <li><a class="dropdown-item" href="kor_emp">KOR   <img src="static/korean.png" style=" position: relative;left: 40px;"></img></a></li>
+        </div>
+      </div>
+      <div class="cq-dd-image edwards-top-banner--medium" style="position: relative; left: 367px; bottom: 38px;">
+          <img class="edwards-top-banner__img lazyautosizes lazyloaded" srcset="https://images.unsplash.com/photo-1502355984-b735cb2550ce?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" data-srcset="https://images.unsplash.com/photo-1602045486350-4e53a69865c6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1407&q=80" data-sizes="auto" sizes="1903px">
+    </div>
+    {% csrf_token %}
+    
+    
+    <div id = "div2" class="album py-5 bg-light">
+        <div class="row">
+            <div class="col" id="sendercard" style="padding-left: 30px; padding-top: -10px; cursor:pointer;">
+                <h6 style="color:white; text-align: center">Your Name</h6>
+                
+                <div style="height: 380px;" class="bg-white rounded shadow-sm py-5 px-4"><img id="rightpicture" src="static/sample image.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                  {%for i in loggedinemployee%}
+                  <h5 style="color:black id="sender_name" class="mb-0">{{i.username}}</h5><span id="rightdept" class="small text-uppercase text-muted">Department</span>
+                 {%endfor%}
+                </div>
+            </div>
+            <div class="col" id="badgecard" style="cursor:pointer;">
+                <h6 style="color:white; text-align: center;">Badge Selected</h6>
+                <div style="height: 380px; width: 400px;" class="bg-white rounded shadow-sm py-5 px-4"><img id="badgeselected" src="static/Badge.PNG" alt="" width="250" height="auto" style="position: relative; bottom: 28px; left: 50px;" >
+                    <span id="custombadgetext" class="small text-uppercase text-muted" style="top: 98px; position: relative; left: -255px;"></span><h5 id="sender_name" class="mb-0">Reason</h5><span id="reason" class="small text-uppercase text-muted">Your Reason for sending this message</span>
+                </div>
+            </div>
+            <div class="col" id="receivercard" style="padding-right: 30px; cursor:pointer;">
+                <h6 style="color:white; text-align: center">Recipient's Name</h6>
+                <div style="height: 380px;" class="bg-white rounded shadow-sm py-5 px-4"><img id="rightpicture1" src="static/sample image.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                    <h5 id="sender_name1" class="mb-0">Employee Name</h5><span id="rightdept1" class="small text-uppercase text-muted">Department</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="position:relative; left:1450px; top:-600px">
+        <img style="height: 520px;width:auto;margin-top: 85px;left: 10px;" src="static/thankyoucollage2.jpg">
+    </div>
+
+    {% comment %} Modals Start {% endcomment %}
+       <div class="modal fade" id="recipientmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Select Your Name</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-6" style="margin-bottom: 0px">
+                            <input type="text" id="myFilter" class="form-control" onkeyup="myFunction()" placeholder="Search Your Name">
+                        </div>
+                        <div class="p-4">
+                            <div  class = "row" style="margin-left: -10px; margin-right: 0px;">
+                              <!-- <div id="list-example" class="list-group" style="float:left; margin-left: -13px;">
+                                    <a class="active" href="#A" style="color: black; font-size: 18px">A</a>
+                                    <a class="" href="#B" style="color: black; font-size: 18px">B</a>
+                                    <a class="" href="#C" style="color: black; font-size: 18px">C</a>
+                                    <a class="" href="#D" style="color: black; font-size: 18px">D</a>
+                                    <a class="" href="#E" style="color: black; font-size: 18px">E</a>
+                                    <a class="" href="#F" style="color: black; font-size: 18px">F</a>
+                                    <a class="" href="#G" style="color: black; font-size: 18px">G</a>
+                                    <a class="" href="#H" style="color: black; font-size: 18px">H</a>
+                                    <a class="" href="#I" style="color: black; font-size: 18px">I</a>
+                                    <a class="" href="#J" style="color: black; font-size: 18px">J</a>
+                                    <a class="" href="#K" style="color: black; font-size: 18px">K</a>
+                                    <a class="" href="#L" style="color: black; font-size: 18px">L</a>
+                                    <a class="" href="#M" style="color: black; font-size: 18px">M</a>
+                                    <a class="" href="#N" style="color: black; font-size: 18px">N</a>
+                                    <a class="" href="#O" style="color: black; font-size: 18px">O</a>
+                                    <a class="" href="#P" style="color: black; font-size: 18px">P</a>
+                                    <a class="" href="#Q" style="color: black; font-size: 18px">Q</a>
+                                    <a class="" href="#R" style="color: black; font-size: 18px">R</a>
+                                    <a class="" href="#S" style="color: black; font-size: 18px">S</a>
+                                    <a class="" href="#T" style="color: black; font-size: 18px">T</a>
+                                    <a class="" href="#U" style="color: black; font-size: 18px">U</a>
+                                    <a class="" href="#V" style="color: black; font-size: 18px">V</a>
+                                    <a class="" href="#W" style="color: black; font-size: 18px">W</a>
+                                    <a class="" href="#X" style="color: black; font-size: 18px">X</a>
+                                    <a class="" href="#Y" style="color: black; font-size: 18px">Y</a>
+                                    <a class="" href="#Z" style="color: black; font-size: 18px">Z</a>
+                                </div>-->
+                                <div data-spy="scroll" data-target="#list-example" class="scrollspy-example col" data-offset="0" style = "height:700px; overflow:auto; margin-left:-17px; right: -23px; left: 23px;" >
+                                    <div class="container" id="searchcont">
+                                        <div class="row text-center" id="myItems">
+                                            {% for i in Emplist %}
+                                                <div id="{{i.username.0}}" class="card col-xl-4 col-sm-4 mb-4">
+                                                    <div class="card-body rounded shadow-sm py-5 px-4" onclick="cardcopy({{forloop.counter0}})"><img id="picture-{{forloop.counter0}}" src="static/Stella.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm emppicture">
+                                                        <h5 class="mb-0 empname">{{i.username}}</h5><span class="small text-uppercase text-muted empdept">{{i.dept}}</span>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="modal fade" id="badgemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Select Badge</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              
+              <div class="modal-body">
+                <a name='Kudos' href="#" onclick="reasonfunc('Kudos')"><img  src="static/kudos.png"  style="width:100%;max-width:252px"></a>
+                <a href="#" onclick="reasonfunc('Great Job')"><img  src="static/great job.png"  style="width:100%;max-width:252px"></a>
+                <a href="#" onclick="reasonfunc('Congratulations')"><img  src="static/congratulations.png"  style="width:100%;max-width:252px"></a>
+                <a href="#" onclick="reasonfunc('Bravo')"><img  src="static/Bravo.jpg"  style="width:100%;max-width:252px"></a>
+                <a href="#" onclick="reasonfunc('Thank You')"><img  src="static/Thank you.png"  style="width:100%;max-width:252px"></a>
+                <a href="#" onclick="custombadgefunc()"><img  src="static/custombadge.png"  style="width:100%;max-width:252px"></a>
+              </div>
+          
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="custombadgemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Badge Details</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                <form method="post" autocomplete="off" id="modal_form1">
+                    <div class="form-group">
+                      <label for="ename">Enter Bagde Text</label>
+                      <input type="text" name="badgetext" id="badgetext" class="form-control" placeholder="Badge Text" required>
+                    </div>
+                    <button class="btn btn-primary" id="badgesubmit">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="reasonmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Enter Details</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <form method="post" autocomplete="off" id="modal_form">
+                    <div class="form-group">
+                      <label for="reasontext">Enter Reason</label>
+                      <textarea class="form-control" id="reasontext" rows="3"></textarea>
+                    </div>
+                    <button class="btn btn-primary" id="leftsubmit">Next</button>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="receivermodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Select Employee Name</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-6" style="margin-bottom: 0px">
+                            <input type="text" id="myFilter1" class="form-control" onkeyup="myFunction1()" placeholder="Search Employee Name">
+                        </div>
+                        <div class="p-4">
+                            <div  class = "row" style="margin-left: -10px; margin-right: 0px;">
+                                <!--<div id="list-example1" class="list-group" style="float:left; margin-left: -13px;">
+                                  {%for i in Emplist%}
+                                    <a class="active" href="#MA" style="color: black; font-size: 18px">{{i.username}}</a>
+                                    <a class="" href="#MB" style="color: black; font-size: 18px">B</a>
+                                    <a class="" href="#MC" style="color: black; font-size: 18px">C</a>
+                                    <a class="" href="#MD" style="color: black; font-size: 18px">D</a>
+                                    <a class="" href="#ME" style="color: black; font-size: 18px">E</a>
+                                    <a class="" href="#MF" style="color: black; font-size: 18px">F</a>
+                                    <a class="" href="#MG" style="color: black; font-size: 18px">G</a>
+                                    <a class="" href="#MH" style="color: black; font-size: 18px">H</a>
+                                    <a class="" href="#MI" style="color: black; font-size: 18px">I</a>
+                                    <a class="" href="#MJ" style="color: black; font-size: 18px">J</a>
+                                    <a class="" href="#MK" style="color: black; font-size: 18px">K</a>
+                                    <a class="" href="#ML" style="color: black; font-size: 18px">L</a>
+                                    <a class="" href="#MM" style="color: black; font-size: 18px">M</a>
+                                    <a class="" href="#MN" style="color: black; font-size: 18px">N</a>
+                                    <a class="" href="#MO" style="color: black; font-size: 18px">O</a>
+                                    <a class="" href="#MP" style="color: black; font-size: 18px">P</a>
+                                    <a class="" href="#MQ" style="color: black; font-size: 18px">Q</a>
+                                    <a class="" href="#MR" style="color: black; font-size: 18px">R</a>
+                                    <a class="" href="#MS" style="color: black; font-size: 18px">S</a>
+                                    <a class="" href="#MT" style="color: black; font-size: 18px">T</a>
+                                    <a class="" href="#MU" style="color: black; font-size: 18px">U</a>
+                                    <a class="" href="#MV" style="color: black; font-size: 18px">V</a>
+                                    <a class="" href="#MW" style="color: black; font-size: 18px">W</a>
+                                    <a class="" href="#MX" style="color: black; font-size: 18px">X</a>
+                                    <a class="" href="#MY" style="color: black; font-size: 18px">Y</a>
+                                    <a class="" href="#MZ" style="color: black; font-size: 18px">Z</a>
+                                  {%endfor%}
+                                </div>-->
+                                <div data-spy="scroll" data-target="#list-example1" class="scrollspy-example col" data-offset="0" style = "height:700px; overflow:auto; margin-left:-17px; right: -23px; left: 23px;" >
+                                    <div class="container" id="searchcont">
+                                        <div class="row text-center" id="myItems1">
+                                          
+                                            {% for i in Emplist %}
+                                                <div id="M{{i.username.0}}" class="card col-xl-4 col-sm-4 mb-4">
+                                                  
+                                                    <div class="card-body rounded shadow-sm py-5 px-4" onclick="cardcopy1({{forloop.counter0}})" ><img id="picture1-{{forloop.counter0}}" src="static/Stella.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm emppicture1">
+                                                      <form id=Myform method="POST">
+                                                        {% csrf_token %}
+                                                         <h5 class="mb-0 empname1">{{i.username}} </h5><span class="small text-uppercase text-muted empdept1" >{{i.dept}}</span>
+                                                      </form>
+                                                    </div>
+                                                  
+                                                </div>
+                                            {% endfor %}
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    {% comment %} Modals End {% endcomment %}
+
+<script>
+    $("#startbutton").click(function(){
+        $('#recipientmodal').modal('toggle');
+    });
+
+    $("#sendercard").click(function(){
+        $('#recipientmodal').modal('toggle');
+    });
+
+    $("#badgecard").click(function(){
+      if($("#sender_name").text()=="Employee Name")
+      {
+        swal("Error!", "Please select employee's name", "error");
+      }
+      else
+      {
+        $('#badgemodal').modal('toggle');
+      }
+    });
+
+    $("#receivercard").click(function(){
+      if($("#reason").text()=="Your Reason for sending this message")
+      {
+        swal("Error!", "Please select a badge and enter a reaason", "error");
+      }
+      else
+      {
+        $('#receivermodal').modal('toggle');
+      }
+    });
+</script>
+
+<script>
+    function myFunction() {
+        var input, filter, cards, cardContainer, h5, title, i;
+        input = document.getElementById("myFilter");
+        filter = input.value.toUpperCase();
+        cardContainer = document.getElementById("myItems");
+        cards = cardContainer.getElementsByClassName("card");
+        for (i = 0; i < cards.length; i++) {
+            title = cards[i].querySelector(".card-body h5.mb-0");
+            if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+</script>
+<script>
+    function myFunction1() {
+        var input, filter, cards, cardContainer, h5, title, i;
+        input = document.getElementById("myFilter1");
+        filter = input.value.toUpperCase();
+        cardContainer = document.getElementById("myItems1");
+        cards = cardContainer.getElementsByClassName("card");
+        for (i = 0; i < cards.length; i++) {
+            title = cards[i].querySelector(".card-body h5.mb-0");
+            if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+<script>
+    function cardcopy(i){
+      console.log("entered");
+      var picture = $("#picture-"+i).attr("src");
+      var name = document.getElementsByClassName("empname");
+      name1 = name[i].innerText;
+      var dept = document.getElementsByClassName("empdept");
+      dept1 = dept[i].innerText;
+      console.log(name1);
+      $("#sender_name").text(name1);
+      $("#rightdept").text(dept1);
+      $("#rightpicture").attr("src",picture);
+      $('#recipientmodal').modal('toggle');
+      $('#badgemodal').modal('toggle');
+    }
+</script>
+
+<script>
+
+    
+
+
+    function cardcopy1(i){
+      console.log("entered");
+      var picture = $("#picture1-"+i).attr("src");
+      console.log(picture);
+      var name = document.getElementsByClassName("empname1");
+      name1 = name[i].innerText;
+      var dept = document.getElementsByClassName("empdept1");
+      dept1 = dept[i].innerText;
+      console.log(name1);
+      $("#sender_name1").text(name1);
+      $("#rightdept1").text(dept1);
+      $("#rightpicture1").attr("src",picture);
+      $('#receivermodal').modal('toggle');
+      // document.getElementById("Myform").submit();
+      // console.log("Well done!")
+      // $.ajax({
+      //       type:'POST',
+      //       url: '127.0.0.1:8000/make_badges_table/',
+      //       dataType: 'json',
+      //       data:{
+      //           Received:name1,
+      //           badge_picture:picture,
+      //           csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+      //       },
+      //       success: function(){
+      //         console.log("success log");
+      //         swal("Success!","Your Message has been sent!","success",{buttons: false,timer: 2000}).then((value) => {
+      //             window.location.reload();
+      //            });
+      //       },
+      //       error: function(){
+      //         console.log("error");
+      //         swal("Error!", "error has occured", "error");
+      //       }
+      //   });
+      rnraddfunc();
+     }
+</script>
+
+<script>
+    function reasonfunc(i){
+      $('#badgemodal').modal('toggle');
+      if (i=="Kudos") {
+        var badge="static/kudos.png";
+        $("#badgeselected").attr("src",badge);
+      } else if (i=="Great Job") {
+        var badge="static/great job.png";
+        $("#badgeselected").attr("src",badge);
+      } else if (i=="Congratulations") {
+        var badge="static/congratulations.png";
+        $("#badgeselected").attr("src",badge);
+      } else if (i=="Bravo") {
+        var badge="static/Bravo.jpg";
+        $("#badgeselected").attr("src",badge);
+      } else if (i=="Thank You") {
+        var badge="static/Thank you.png";
+        $("#badgeselected").attr("src",badge);
+      }
+      $("#badgeselected").val(i);
+      $('#reasonmodal').modal('toggle');
+    }
+</script>
+
+<script>
+    function custombadgefunc(){
+      $('#badgemodal').modal('toggle');
+      var badge="static/custombadge.png";
+      $("#badgeselected").attr("src",badge);
+      $('#custombadgemodal').modal('toggle');
+    }
+</script>
+
+<script>
+    $("#leftsubmit").click(function(e){
+      e.preventDefault();
+      var reason = document.getElementById("reasontext").value;
+      console.log(reason);
+      $("#reason").text(reason);
+      $('#reasonmodal').modal('toggle');
+      $('#receivermodal').modal('toggle');
+    });
+</script>
+
+<script>
+    $("#badgesubmit").click(function(e){
+      e.preventDefault();
+      var badgetext = document.getElementById("badgetext").value;
+      $("#custombadgetext").text(badgetext);
+      $('#custombadgemodal').modal('toggle');
+      $('#reasonmodal').modal('toggle');
+    });
+</script>
+
+<script>
+      function rnraddfunc(){
+        console.log("Hello!")
+        var empsent1 = $("#sender_name1").text();
+        var source = $("#badgeselected").attr("src");
+        if(source=="static/kudos.png"){
+          var badgetype1 = "Kudos";
+          var badgename1 = "Kudos";
+        } else if(source=="static/great job.png"){
+          var badgetype1 = "Great Job";
+          var badgename1 = "Great Job";
+        } else if(source=="static/congratulations.png"){
+          var badgetype1 = "Congratulations";
+          var badgename1 = "Congratulations";
+        } else if(source=="static/Bravo.jpg"){
+          var badgetype1 = "Bravo";
+          var badgename1 = "Bravo";
+        } else if(source=="static/Thank you.png"){
+          var badgetype1 = "Thank You";
+          var badgename1 = "Thank You";
+        } else if(source=="static/custombadge.png"){
+          var badgetype1 = "Custom Badge";
+          var badgename1 = $("#custombadgetext").text();
+        }
+        var message1 = $("#reason").text();
+        var emprecvd1 = $("#sender_name").text();
+        console.log(emprecvd1,badgetype1,badgename1,message1,empsent1);
+        var today = new Date().getFullYear()+'-'+("0"+(new Date().getMonth()+1)).slice(-2)+'-'+("0"+new Date().getDate()).slice(-2);
+        $.ajax({
+            type:'POST',
+            url: 'add_rnr/',
+            dataType: 'json',
+            data:{
+                empsent:empsent1,
+                badgetype:badgetype1,
+                badgename:badgename1,
+                message:message1,
+                emprecvd:emprecvd1,
+                date:today,
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+            },
+            success: function(){
+              console.log("success log");
+              swal("Success!","Your Message has been sent!","success",{buttons: false,timer: 2000}).then((value) => {
+                  window.location.reload();
+                 });
+            },
+            error: function(){
+              console.log("error");
+              swal("Error!", "Some error has occured, please try again later", "error");
+            }
+        });
+      }
+</script>
+
+<script>
+    var customElement = $("<div>", {
+        "css"   : {
+            "border"        : "4px dashed red",
+            "font-size"     : "35px",
+            "text-align"    : "center",
+            "padding"       : "10px"
+        },
+        "class" : "your-custom-class",
+        "text"  : "Sending Your Message!"
+    });
+    $(document).ajaxStart(function(){
+      $.LoadingOverlay("show", {
+          image  : "",
+          custom : customElement
+      });
+    });
+    $(document).ajaxStop(function(){
+        $.LoadingOverlay("hide");
+    });
+</script>
+
+{% endblock body %}

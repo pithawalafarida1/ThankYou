@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{% block title %}Vendor {% endblock title %}
+
+{% block style %}
+    #div2
+      {
+        position: relative;
+        margin-left: 760px;
+        margin-top: 100px;
+        height:600px;
+        width:800px;
+        background-image: url('static/redtexture.jpg');
+      }
+{% endblock style %}
+
+{% block body %}
+<div id = "div2" class="album py-5 bg-light">
+    <div class="row">
+        <div class="col" style="padding-left: 30px; padding-top: 15px">
+            <div style="height: 420px;" class="bg-white rounded shadow-sm py-5 px-4"><img id="rightpicture" src="static/sample image.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 id="sender_name" class="mb-0">Employee Name</h5><span id="rightdept" class="small text-uppercase text-muted">Department</span>
+            </div>
+        </div>
+    <div class="col" style="padding-top: 15px">
+        <div style="height: 420px; width: 400px;" class="bg-white rounded shadow-sm py-5 px-4"><img id="badgeselected" src="static/Badge.PNG" alt="" width="300" height="auto" style="position: relative; bottom: 28px; left: 20px;" >
+            <span id="custombadgetext" class="small text-uppercase text-muted"></span><h5 id="sender_name" class="mb-0">Reason</h5><span id="reason" class="small text-uppercase text-muted">Your Reason for sending this message</span>
+        </div>
+    </div>
+    <div class="col" style="padding-right: 30px; padding-top: 15px">
+        <div style="height: 420px;" class="bg-white rounded shadow-sm py-5 px-4"><img id="rightpicture1" src="static/sample image.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+            <h5 id="sender_name1" class="mb-0">Your Name</h5><span id="rightdept1" class="small text-uppercase text-muted">Department</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#navven").addClass("active");
+    $("#navemp").removeClass("active");
+    $("#navrec").removeClass("active");
+</script>
+{% endblock body %}

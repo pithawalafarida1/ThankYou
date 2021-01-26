@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Oleo Script' rel='stylesheet'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="static/loadingoverlay.min.js"></script>
+
+    <title> {% block title %} {% endblock title  %} | Edwards Thank You</title>
+
+    <style>
+            .header-container {
+                width: 100%;
+                background: linear-gradient(to right,#abafb0,#818689);
+                height: 134px;
+                position: relative;
+            }
+
+            user agent stylesheet
+            div {
+                display: block;
+            }
+            body {
+                color: #373d41;
+                background-color: #FFF;
+                -webkit-font-smoothing: antialiased;
+            }
+
+
+            ::selection {
+                background-color: #b4d5e5;
+                color: #700006;
+                text-shadow: none;
+            }
+
+                .header-container-top {
+                height: 55px;
+                width: 100%;
+                background-color: lightgrey;
+            }
+
+
+            element.style {
+                width: 365.6px;
+            }
+            .header-metanavigation-fill {
+                width: 320px;
+                height: 100%;
+                background: linear-gradient(to right,#c4262e,#a22026);
+                left: 0;
+                top: 0;
+                position: absolute;
+            }
+
+            user agent stylesheet
+            div {
+                display: block;
+            }
+            body {
+                color: #373d41;
+                background-color: #FFF;
+                -webkit-font-smoothing: antialiased;
+            }
+
+
+            ::selection {
+                background-color: #b4d5e5;
+                color: #700006;
+                text-shadow: none;
+            }
+
+            .e-footer {
+                height: 100px;
+                width: 100%;
+                background: linear-gradient(to right,#abafb0,#818689);
+            }
+
+            .e-footer__container {
+                position: relative;
+                max-width: 69rem;
+                margin: 0 auto;
+            }
+            .e-footer__logo {
+                background-color: #c4262e;
+                position: absolute;
+                height: 110px;
+                width: 165px;
+                top: -10px;
+                left: 0;
+                margin-left: 20px;
+            }
+            .e-footer__follow {
+                position: relative;
+                padding-left: 200px;
+                height: 100px;
+                float: left;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+            .e-footer__navigation {
+                float: right;
+                margin-right: 20px;
+            }
+            .e-subfooter__container {
+                background: linear-gradient(to right,#c4262e,#c4262e,#a22026);
+                height: 30px;
+            }
+            .o-grid--medium {
+                margin-left: -1.2rem;
+                margin-right: -1.2rem;
+            }
+            .e-subfooter-links__container {
+                max-width: 69rem;
+                margin: 0 auto;
+                height: 100%;
+            }
+            .c-nav-footer {
+                list-style: none;
+                padding-left: 0;
+                margin-bottom: 0;
+                padding-right: 20px;
+                float: right;
+                *zoom: 1;
+            }
+            .c-nav-footer__item {
+                float: right;
+                margin-right: .5em;
+                margin-top: .4rem;
+                margin-bottom: .4rem;
+            }
+            .c-nav-footer__text {
+                display: block;
+                color: #fff;
+                font-weight: 300;
+                font-size: .77778rem;
+                line-height: 1.15714em;
+            }
+            .svg .e-footer__logo__img {
+                background-image: url("static/logo-footer.svg");
+            }
+            .e-footer__logo__img {
+                background-repeat: no-repeat;
+                background-image: url("static/logo-footer.svg");
+                transform: scale(0.85) translateX(30%) translateY(27%);
+                height: 100%;
+                width: 100%;
+                position: relative;
+            }
+            .e-footer__navigation-left {
+                float: left;
+                width: 500px;
+                height: 100px;
+                position: relative;
+            }
+            .e-footer__navigation-left .navigation-link-group {
+                margin-right: 30px;
+            }
+            .navigation-link-container {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                -webkit-box-align: center;
+                height: 100%;
+            }
+            .navigation-link-group h6 {
+                margin-bottom: 0;
+            }
+            .navigation-link-group__title {
+                color: white;
+            }
+            h6 {
+                font-family: "Calibri",-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif;
+                font-weight: 600;
+                font-style: normal;
+                font-size: 18px;
+                line-height: 1.25;
+                margin-bottom: .5rem;
+                color: #c4262e;
+            }
+            .e-footer__navigation__list {
+                line-height: 1em;
+                width: 100%;
+            }
+            .c-list-nested--indent {
+                font-weight: 400;
+                padding-left: 0rem;
+                padding-right: .6rem;
+            }
+            .c-list-nested {
+                list-style: none;
+                padding-left: 0;
+                margin-bottom: 0;
+            }
+            .c-list-nested--indent > .c-list-nested__item {
+                padding-top: .1rem;
+                padding-bottom: .1rem;
+            }
+            .e-footer__navigation__item {
+                width: 33%;
+                float: left;
+            }
+            .c-list-nested__item {
+                position: relative;
+                padding-left: 0;
+                padding-top: .8rem;
+                padding-bottom: .8rem;
+            }
+            .c-list-nested--indent > .c-list-nested__item {
+                padding-top: .1rem;
+                padding-bottom: .1rem;
+            }
+            .e-footer__navigation__item {
+                width: 33%;
+                float: left;
+            }
+            .c-list-nested__item {
+                position: relative;
+                padding-left: 0;
+                padding-top: .8rem;
+                padding-bottom: .8rem;
+            }
+            .e-footer__navigation__item a {
+                color: white;
+                font-size: 1.5rem;
+            }
+
+                .sidebar {
+                position: fixed;
+                top: 135px;
+                /* rtl:raw:
+                right: 0;
+                */
+                bottom: 100px;
+                /* rtl:remove */
+                left: 0;
+                z-index: 100; /* Behind the navbar */
+                padding: 48px 0 0; /* Height of navbar */
+                box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+                }
+
+                @media (max-width: 767.98px) {
+                .sidebar {
+                    top: 5rem;
+                }
+                }
+
+                .sidebar-sticky {
+                position: relative;
+                top: ;
+                height: calc(100vh - 48px);
+                padding-top: .5rem;
+                overflow-x: hidden;
+                overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+                }
+
+                .sidebar .nav-link {
+                font-weight: 500;
+                color: #333;
+                }
+
+                .sidebar .nav-link .feather {
+                margin-right: 4px;
+                color: #727272;
+                }
+
+                .sidebar .nav-link.active {
+                 border-top-right-radius: 25px; 
+                 border-bottom-right-radius: 25px; 
+                 background-color:#c4262e;
+                }
+
+                .sidebar .nav-link:hover .feather,
+                .sidebar .nav-link.active .feather {
+                color: inherit;
+                }
+
+                .sidebar-heading {
+                font-size: .75rem;
+                text-transform: uppercase;
+                }
+                .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+                }
+      }
+      
+    #exampleModal {
+        position: absolute;
+        top: 560px;
+        bottom: 0;
+        left: 880px;
+        overflow: auto;
+        overflow-y: auto;
+        }
+    
+    #exampleModal1 {
+        position: absolute;
+        top: 610px;
+        bottom: 0;
+        left: 880px;
+        overflow: auto;
+        overflow-y: auto;
+        }
+        
+     @media (min-width: 45em)
+        .edwards-bottom-banner__title {
+        font-size: 3.6rem;
+        padding: 0;
+        letter-spacing: -.035em;
+        }
+
+        .edwards-bottom-banner__title {
+            display: inline-block;
+            background: 0;
+            color: #fff;
+            line-height: 1.1;
+            font-weight: 300;
+            margin: 0;
+            position: relative;
+            font-size: 1.5rem;
+            padding: 5.13px;
+            font-style: normal;
+}
+     .edwards-bottom-banner__title::before {
+            content: "";
+            position: absolute;
+            top: -1rem;
+            left: -2rem;
+            border-top: .825rem solid #c4262e;
+            width: 3rem;
+            height: auto;
+        }
+        
+       
+        .edwards-bottom-banner__title::after {
+            content: "";
+            position: absolute;
+            top: -1rem;
+            left: -2rem;
+            border-left: .825rem solid #c4262e;
+            height: 3rem;
+            width: auto;
+        }
+        
+        .card{
+            border-radius: 0;
+            box-shadow: 5px 5px 15px #b83a3b;
+            transition: all 0.3s ease-in;
+            -webkit-transition: all 0.3s ease-in;
+            -moz-transition: all 0.3s ease-in;
+        }
+        .card{
+        border-radius: 0;
+        box-shadow: 5px 5px 15px #b83a3b;
+        transition: all 0.3s ease-in;
+        -webkit-transition: all 0.3s ease-in;
+        -moz-transition: all 0.3s ease-in;
+    }
+    .card:hover{
+        background: linear-gradient(to right,#c4262e,#a22026);
+        color: #fff;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 5px 5px 10px #b83a3b;
+    }
+    .card:hover h3,#team .card:hover i{
+        color: #fff;
+    }
+
+
+    {% block style %} {% endblock style %}
+</style>
+</head>
+<body>
+    <header> 
+        <div class="header-container">
+            <div class="header-container-top">
+                <div class="header-metanavigation-fill" style="width: 365.6px;"></div>
+                    <div class="header-container-bottom">
+                        <div class="header-container-bottom-content">
+                       <h1 class="edwards-bottom-banner__title top-banner__title--no-description" style="color:white; font-weight: bold; position: relative;left: 1044px;top: 49px;">감사합니다 시스템</h1> 
+                            <a href="recognition_test"><img id="brand-image" alt="Website Logo" src="static/logo.svg" style="position: relative;bottom: -40px;left: -149px;height: 109px;width: 302px;"></a>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" style="max-width: 367px;">
+                <div class="col-xl-12 col-sm-6 mb-5" style="top: -50px; padding-left: 0px; padding-right: 0px;  background: linear-gradient(to right,#abafb0,#818689); height: 210px;">
+                        <div class="rounded shadow-sm py-5 px-4" style="text-align: center;">
+                            <h3 class="mb-0" style="color:white">Harsh Shinde</h3>
+                            <h6 class="mb-0" style="color:white">harshshinde@atlascopco.com</h6>
+                            <img src="static/sample image.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm" style="position: relative; top: 50px;">
+                        </div>
+                </div>
+                <div class="position-sticky pt-3" style = "text-align: center;">
+                    {% comment %} Left Matrix will go here {% endcomment %}
+                    <div class="card" style="width: 18rem; left: 40px; top:-40px">
+                        <table class="card-table table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Badge</th>
+                                <th scope="col">Sent</th>
+                                <th scope="col">Received</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><img src="static/Thank you.png" alt="Image 1" title="Thank You" style="height:30px; width:30px"></td>
+                                <td>{{thanksent}}</td>
+                                <td>{{thankrecvd}}</td>
+                            </tr>
+                            <tr>
+                                <td><img src="static/Kudos.png" alt="Image 1" title="Kudos" style="height:30px; width:30px"></td>
+                                <td>{{kudossent}}</td>
+                                <td>{{kudosrecvd}}</td>
+                            </tr>
+                            <tr>
+                                <td><img src="static/great job.png" alt="Image 1" title="Great Job" style="height:30px; width:30px"></td>
+                                <td>{{greatsent}}</td>
+                                <td>{{greatrecvd}}</td>
+                            </tr>
+                            <tr>
+                                <td><img src="static/Bravo.jpg" alt="Image 1" title="Bravo" style="height:30px; width:30px"></td>
+                                <td>{{bravosent}}</td>
+                                <td>{{bravorecvd}}</td>
+                            </tr>
+                            <tr>
+                                <td><img src="static/congratulations.png" alt="Image 1" title="Congratulations" style="height:30px; width:30px"></td>
+                                <td>{{congratsent}}</td>
+                                <td>{{congratrecvd}}</td>
+                            </tr>
+                            <tr>
+                                <td><img src="static/custombadge.png" alt="Image 1" title="Custom Badge" style="height:30px; width:30px"></td>
+                                <td>{{customsent}}</td>
+                                <td>{{customrecvd}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    {% block body %} {% endblock body %}
+    <div class="e-footer" style="position: fixed; left: 0; bottom: 0; width: 100%;">
+        <div class="e-footer__container">
+            <a href="/eng_emp_test" style="font-weight:bold; color: white; cursor: pointer; position: relative; left: -315px; font-size: 1.5rem; top: 20px;">
+                Say: "감사합니다 !"
+            </a>
+            <div class="e-footer__logo">
+                <div class="e-footer__logo__img" style="top: -10px;"></div>
+            </div>
+            <div class="e-footer__navigation">
+                <div class="e-footer__navigation-left">
+                    <div class="navigation-link-group-left navigation-link-group">
+                        <div class="navigation-link-container">
+                            <h6 class="navigation-link-group__title"></h6>
+                            <ul class="c-list-nested c-list-nested--indent e-footer__navigation__list">
+                                <li class="c-list-nested__item e-footer__navigation__item" style="top: 30px; left: 170px;">
+                                    <!-- form-header-and-footer-check-use use -->
+                                    <a data-toggle="modal" data-target="#exampleModal" style="color:white; cursor:pointer;">
+                                        우리에 대해
+                                    </a>
+                                </li>
+                                <li class="c-list-nested__item e-footer__navigation__item" style="top: 30px; left: 200px;">
+                                    <!-- form-header-and-footer-check-use use -->
+                                    <a data-toggle="modal" data-target="#exampleModal1" style="color:white; cursor:pointer;">
+                                        문의하기
+                                    </a>
+                                </li>   
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="subfooter-links" class="e-subfooter__container" style="position: fixed; left: 0; bottom: 0; width: 100%;">
+            <div class="o-grid o-grid--medium">
+                <div class="e-subfooter-links__container">
+                    <ul class="c-nav-footer">
+                        <li class="c-nav-footer__item">
+                            <span class="c-nav-footer__text">© 2020 Copyright. All rights reserved. </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="color:white; background-color: #a22026;">
+                <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">우리에 대해</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                감사의 말을하는 것은 일상적인 에티켓이며 잠시만 걸리는 단순한 예의입니다. 노력도 들지 않습니다. 그러나 그것은 또한 우리와 가장 가까운 사람들과 우리가 가장 짧은 시간 동안 접촉하는 사람들 모두와 상호 작용하는 가장 중요한 방법 중 하나입니다. Edwards의 인사말 시스템에 오신 것을 환영합니다. 직원과 공급 업체는이 웹 사이트를 사용하여 다른 직원과 공급 업체에 감사 할 수 있습니다.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade bd-example-modal-sm" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="color:white; background-color: #a22026;">
+                <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;">문의하기</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                <p style="text-align: center;">
+                    Sandeep Joshi
+                    <br>
+                    Sr. Project Leader
+                    <br>
+                    911
+                    <br>
+                    sandeep@gmail.com
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $(".nav-link").click(function(){
+                $(this).addClass("active");
+            });
+        });
+    </script>
+</body>
+</html>
+
+{% comment %} https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_accordion_animate {% endcomment %}
+
+

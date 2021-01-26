@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Oleo Script' rel='stylesheet'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="static/loadingoverlay.min.js"></script>
+
+    <title> {% block title %} {% endblock title  %} | Edwards Thank You</title>
+
+    <style>
+            html, body{overflow:hidden;}
+
+            .header-container {
+                width: 100%;
+                background-color: lightgrey;
+                height: 134px;
+                position: relative;
+            }
+
+            user agent stylesheet
+            div {
+                display: block;
+            }
+            body {
+                color: #373d41;
+                background-color: #FFF;
+                -webkit-font-smoothing: antialiased;
+            }
+
+
+            ::selection {
+                background-color: #b4d5e5;
+                color: #700006;
+                text-shadow: none;
+            }
+
+                .header-container-top {
+                height: 55px;
+                width: 100%;
+                background: linear-gradient(to right,#abafb0,#818689);
+            }
+
+
+            element.style {
+                width: 365.6px;
+            }
+            .header-metanavigation-fill {
+                width: 320px;
+                height: 100%;
+                background: linear-gradient(to right,#c4262e,#a22026);
+                left: 0;
+                top: 0;
+                position: absolute;
+            }
+
+            user agent stylesheet
+            div {
+                display: block;
+            }
+            body {
+                color: #373d41;
+                background-color: #FFF;
+                -webkit-font-smoothing: antialiased;
+            }
+
+
+            ::selection {
+                background-color: #b4d5e5;
+                color: #700006;
+                text-shadow: none;
+            }
+
+            .e-footer {
+                height: 100px;
+                width: 100%;
+                background: linear-gradient(to right,#abafb0,#818689);
+            }
+
+            .e-footer__container {
+                position: relative;
+                max-width: 69rem;
+                margin: 0 auto;
+            }
+            .e-footer__logo {
+                background-color: #c4262e;
+                position: absolute;
+                height: 110px;
+                width: 165px;
+                top: -10px;
+                left: 0;
+                margin-left: 20px;
+            }
+            .e-footer__follow {
+                position: relative;
+                padding-left: 200px;
+                height: 100px;
+                float: left;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+            .e-footer__navigation {
+                float: right;
+                margin-right: 20px;
+            }
+            .e-subfooter__container {
+                background: linear-gradient(to right,#c4262e,#c4262e,#a22026);
+                height: 30px;
+            }
+            .o-grid--medium {
+                margin-left: -1.2rem;
+                margin-right: -1.2rem;
+            }
+            .e-subfooter-links__container {
+                max-width: 69rem;
+                margin: 0 auto;
+                height: 100%;
+            }
+            .c-nav-footer {
+                list-style: none;
+                padding-left: 0;
+                margin-bottom: 0;
+                padding-right: 20px;
+                float: right;
+                *zoom: 1;
+            }
+            .c-nav-footer__item {
+                float: right;
+                margin-right: .5em;
+                margin-top: .4rem;
+                margin-bottom: .4rem;
+            }
+            .c-nav-footer__text {
+                display: block;
+                color: #fff;
+                font-weight: 300;
+                font-size: .77778rem;
+                line-height: 1.15714em;
+            }
+            .svg .e-footer__logo__img {
+                background-image: url("static/logo-footer.svg");
+            }
+            .e-footer__logo__img {
+                background-repeat: no-repeat;
+                background-image: url("static/logo-footer.svg");
+                transform: scale(0.85) translateX(30%) translateY(27%);
+                height: 100%;
+                width: 100%;
+                position: relative;
+            }
+            .e-footer__navigation-left {
+                float: left;
+                width: 500px;
+                height: 100px;
+                position: relative;
+            }
+            .e-footer__navigation-left .navigation-link-group {
+                margin-right: 30px;
+            }
+            .navigation-link-container {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                -webkit-box-align: center;
+                height: 100%;
+            }
+            .navigation-link-group h6 {
+                margin-bottom: 0;
+            }
+            .navigation-link-group__title {
+                color: white;
+            }
+            h6 {
+                font-family: "Calibri",-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif;
+                font-weight: 600;
+                font-style: normal;
+                font-size: 18px;
+                line-height: 1.25;
+                margin-bottom: .5rem;
+                color: #c4262e;
+            }
+            .e-footer__navigation__list {
+                line-height: 1em;
+                width: 100%;
+            }
+            .c-list-nested--indent {
+                font-weight: 400;
+                padding-left: 0rem;
+                padding-right: .6rem;
+            }
+            .c-list-nested {
+                list-style: none;
+                padding-left: 0;
+                margin-bottom: 0;
+            }
+            .c-list-nested--indent > .c-list-nested__item {
+                padding-top: .1rem;
+                padding-bottom: .1rem;
+            }
+            .e-footer__navigation__item {
+                width: 33%;
+                float: left;
+            }
+            .c-list-nested__item {
+                position: relative;
+                padding-left: 0;
+                padding-top: .8rem;
+                padding-bottom: .8rem;
+            }
+            .c-list-nested--indent > .c-list-nested__item {
+                padding-top: .1rem;
+                padding-bottom: .1rem;
+            }
+            .e-footer__navigation__item {
+                width: 33%;
+                float: left;
+            }
+            .c-list-nested__item {
+                position: relative;
+                padding-left: 0;
+                padding-top: .8rem;
+                padding-bottom: .8rem;
+            }
+            .e-footer__navigation__item a {
+                color: white;
+                font-size: 1.5rem;
+            }   
+      
+    #exampleModal {
+        position: absolute;
+        top: 560px;
+        bottom: 0;
+        left: 880px;
+        overflow: auto;
+        overflow-y: auto;
+        }
+    
+    #exampleModal1 {
+        position: absolute;
+        top: 610px;
+        bottom: 0;
+        left: 880px;
+        overflow: auto;
+        overflow-y: auto;
+        }
+        
+     @media (min-width: 45em)
+        .edwards-bottom-banner__title {
+        font-size: 3.6rem;
+        padding: 0;
+        letter-spacing: -.035em;
+        }
+
+        .edwards-bottom-banner__title {
+            display: inline-block;
+            background: 0;
+            color: #fff;
+            line-height: 1.1;
+            font-weight: 300;
+            margin: 0;
+            position: relative;
+            font-size: 1.80rem;
+            padding: 5.13px;
+            font-style: normal;
+}
+     .edwards-bottom-banner__title::before {
+            content: "";
+            position: absolute;
+            top: -1rem;
+            left: -2rem;
+            border-top: .825rem solid #c4262e;
+            width: 3rem;
+            height: auto;
+        }
+        
+       
+        .edwards-bottom-banner__title::after {
+            content: "";
+            position: absolute;
+            top: -1rem;
+            left: -2rem;
+            border-left: .825rem solid #c4262e;
+            height: 3rem;
+            width: auto;
+        }
+        
+        {% comment %} Styling for Login {% endcomment %}
+        
+
+        .login-box {
+            width: 100%;
+            margin: auto;
+            max-width: 525px;
+            min-height: 670px;
+            position: relative;
+            background: url(https://images.unsplash.com/photo-1507208773393-40d9fc670acf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80) no-repeat center;
+            box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19)
+        }
+
+        .login-snip {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            padding: 90px 70px 50px 70px;
+            background: rgba(218, 59, 59, 0.9)
+        }
+
+        .login-snip .login,
+        .login-snip .sign-up-form {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+            transition: all .4s linear
+        }
+
+        .login-snip .sign-in,
+        .login-snip .sign-up,
+        .login-space .group .check {
+            display: none
+        }
+
+        .login-snip .tab,
+        .login-space .group .label,
+        .login-space .group .button {
+            text-transform: uppercase
+        }
+
+        .login-snip .tab {
+            font-size: 22px;
+            margin-right: 15px;
+            padding-bottom: 5px;
+            margin: 0 15px 10px 0;
+            display: inline-block;
+            border-bottom: 2px solid transparent
+        }
+
+        .login-snip .sign-in:checked+.tab,
+        .login-snip .sign-up:checked+.tab {
+            color: #fff;
+            border-color: #000000
+        }
+
+        .login-space {
+            min-height: 345px;
+            position: relative;
+            perspective: 1000px;
+            transform-style: preserve-3d
+        }
+
+        .login-space .group {
+            margin-bottom: 15px
+        }
+
+        .login-space .group .label,
+        .login-space .group .input,
+        .login-space .group .button {
+            width: 100%;
+            color: #fff;
+            display: block
+        }
+
+        .login-space .group .input,
+        .login-space .group .button {
+            border: none;
+            padding: 15px 20px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, .1)
+        }
+
+        .login-space .group input[data-type="password"] {
+            text-security: circle;
+            -webkit-text-security: circle
+        }
+
+        .login-space .group .label {
+            color: rgb(0, 0, 0);
+            font-size: 12px
+        }
+
+        .login-space .group .button {
+            background: #000000
+        }
+
+        .login-space .group label .icon {
+            width: 15px;
+            height: 15px;
+            border-radius: 2px;
+            position: relative;
+            display: inline-block;
+            background: rgba(255, 255, 255, .1)
+        }
+
+        .login-space .group label .icon:before,
+        .login-space .group label .icon:after {
+            content: '';
+            width: 10px;
+            height: 2px;
+            background: #fff;
+            position: absolute;
+            transition: all .2s ease-in-out 0s
+        }
+
+        .login-space .group label .icon:before {
+            left: 3px;
+            width: 5px;
+            bottom: 6px;
+            transform: scale(0) rotate(0)
+        }
+
+        .login-space .group label .icon:after {
+            top: 6px;
+            right: 0;
+            transform: scale(0) rotate(0)
+        }
+
+        .login-space .group .check:checked+label {
+            color: #fff
+        }
+
+        .login-space .group .check:checked+label .icon {
+            background: #000000
+        }
+
+        .login-space .group .check:checked+label .icon:before {
+            transform: scale(1) rotate(45deg)
+        }
+
+        .login-space .group .check:checked+label .icon:after {
+            transform: scale(1) rotate(-45deg)
+        }
+
+        .login-snip .sign-in:checked+.tab+.sign-up+.tab+.login-space .login {
+            transform: rotate(0)
+        }
+
+        .login-snip .sign-up:checked+.tab+.login-space .sign-up-form {
+            transform: rotate(0)
+        }
+
+        *,
+        :after,
+        :before {
+            box-sizing: border-box
+        }
+
+        .clearfix:after,
+        .clearfix:before {
+            content: '';
+            display: table
+        }
+
+        .clearfix:after {
+            clear: both;
+            display: block
+        }
+
+        .hr {
+            height: 2px;
+            margin: 60px 0 50px 0;
+            background: rgba(255, 255, 255, .2)
+        }
+
+        .foot {
+            text-align: center
+        }
+
+        .card {
+            width: 500px;
+            left: 100px
+        }
+
+        ::placeholder {
+            color: #b3b3b3
+        }
+</style>
+</head>
+<body>
+    <header> 
+        <div class="header-container">
+            <div class="header-container-top">
+                <div class="btn-group" style="position: relative; float: right; right:80px; top:8px">
+                    <button class="btn btn-secondary dropdown-toggle" style="border-radius: 50px;" data-toggle="dropdown">
+                        Language 
+                    </button>
+                    <div class="dropdown-menu">
+                        <li><a class="dropdown-item active" href="eng_ven">ENG   <img src="static/english.png" style=" position: relative;left: 40px;"></img></a></li>
+                        <li><a class="dropdown-item" href="kor_ven">KOR   <img src="static/korean.png" style=" position: relative;left: 40px;"></img></a></li>
+                    </div>
+                </div>
+                <div class="header-metanavigation-fill" style="width: 365.6px;"></div>
+                    <div class="header-container-bottom">
+                        <div class="header-container-bottom-content">
+                       <h1 class="edwards-bottom-banner__title top-banner__title--no-description" style="color:black; font-weight: bold; position: relative;left: 870px;top: 49px;">Thank you System</h1> 
+                            <a href="recognition_test"><img id="brand-image" alt="Website Logo" src="static/logo.svg" style="position: relative;bottom: -40px;left: -197px;height: 109px;width: 302px;"></a>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="row">
+        <div class="col-md-6 mx-auto p-0">
+            <div class="card" style="position:relative; left:265px; margin-top:35px">
+                <div class="login-box">
+                    <div class="login-snip"> <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab" style="margin-bottom: 20px;">Login</label> <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab" style="margin-bottom: 20px;">Sign Up</label>
+                        <div class="login-space">
+                        <form action="loggedin" method="POST">
+                            {%csrf_token%}
+                            <div class="login">
+        
+                                <div class="group"> <label for="user" class="label">Username</label> <input name="usernamelogin" id="user" type="text" class="input" placeholder="Enter your username"> </div>
+                                <div class="group"> <label for="pass" class="label">Password</label> <input name="passwordlogin" id="pass" type="password" class="input" data-type="password" placeholder="Enter your password"> </div>
+                                <div class="group"> <input id="check" type="checkbox" class="check" checked> <label for="check"><span class="icon"></span> Keep me Signed in</label> </div>
+                                <div class="group"> <input type="submit" class="button" value="Sign In"> </div>
+                                <div class="hr"></div>
+                                <div class="foot"> <a href="#" style="color:#000000">Forgot Password?</a> </div>
+                            </div>
+                        </form>
+                        <form action="register" method="POST">
+                         {%csrf_token%}
+                            <div class="sign-up-form">
+                                <div class="group"> <label for="username" class="label">Username</label> <input name="username" id="username" type="text" class="input" placeholder="Enter your name"> </div>
+                                <div class="group"> <label for="password1" class="label">Password</label> <input name="password1" id="password1" type="password" class="input" data-type="password" placeholder="Create your password"> </div>
+                                <div class="group"> <label for="password2" class="label">Repeat Password</label> <input name="password2" id="password2" type="password" class="input" data-type="password" placeholder="Repeat your password"> </div>
+                                <div class="group"> <label for="email" class="label">Email Address</label> <input name="email" id="email" type="text" class="input" placeholder="Enter your email address"> </div>
+                                <div class="group"> <input type="submit" class="button" value="Sign Up"> </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="e-footer" style="position: fixed; left: 0; bottom: 0; width: 100%;">
+        <div class="e-footer__container">
+            <div class="e-footer__logo">
+                <div class="e-footer__logo__img" style="top: -10px;"></div>
+            </div>
+            <div class="e-footer__navigation">
+                <div class="e-footer__navigation-left">
+                    <div class="navigation-link-group-left navigation-link-group">
+                        <div class="navigation-link-container">
+                            <h6 class="navigation-link-group__title"></h6>
+                            <ul class="c-list-nested c-list-nested--indent e-footer__navigation__list">
+                                <li class="c-list-nested__item e-footer__navigation__item" style="top: 30px; left: 170px;">
+                                    <!-- form-header-and-footer-check-use use -->
+                                    <a data-toggle="modal" data-target="#exampleModal" style="color:white; cursor:pointer;">
+                                        ABOUT US
+                                    </a>
+                                </li>
+                                <li class="c-list-nested__item e-footer__navigation__item" style="top: 30px; left: 200px;">
+                                    <!-- form-header-and-footer-check-use use -->
+                                    <a data-toggle="modal" data-target="#exampleModal1" style="color:white; cursor:pointer;">
+                                        CONTACT US
+                                    </a>
+                                </li>   
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="subfooter-links" class="e-subfooter__container" style="position: fixed; left: 0; bottom: 0; width: 100%;">
+            <div class="o-grid o-grid--medium">
+                <div class="e-subfooter-links__container">
+                    <ul class="c-nav-footer">
+                        <li class="c-nav-footer__item">
+                            <span class="c-nav-footer__text">© 2020 Copyright. All rights reserved. </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="color:white; background-color: #a22026;">
+                <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">ABOUT US</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                Saying thank you – it's everyday etiquette and a simply courtesy that takes just a moment. It costs nothing, not even effort. But it's also one of the most important ways in which we interact with others, both those closest to us and those with whom we have contact for the briefest of times. Welcome to Edwards' greeting system. Employees and vendors can use this website to thank other employees and vendors.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade bd-example-modal-sm" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="color:white; background-color: #a22026;">
+                <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;">CONTACT US</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                </div> 
+                 <div class="modal-body">
+                <p style="text-align: center;">
+                    Sandeep Joshi
+                    <br>
+                    Sr. Project Leader
+                    <br>
+                    911
+                    <br>
+                    sandeep@gmail.com
+                </p>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $(".nav-link").click(function(){
+                $(this).addClass("active");
+            });
+        });
+    </script>
+</body>
+</html>
+
+{% comment %} https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_accordion_animate {% endcomment %}
+
+

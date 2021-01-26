@@ -1,0 +1,643 @@
+{% extends 'index.html' %}
+
+{% block title %}Recognition {% endblock title %}
+
+{% block style %}
+    html, body{overflow:hidden;}
+    #div2
+      {
+        position: relative;
+        margin-left: 760px;
+        margin-top: 200px;
+        height:600px;
+        width:800px;
+        background-image: url('static/redtexture.jpg');
+      }
+
+    @media (max-width: 768px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+    }
+
+    .carousel-inner .carousel-item.active,
+    .carousel-inner .carousel-item-next,
+    .carousel-inner .carousel-item-prev {
+        display: flex;
+    }
+
+    /* display 3 */
+    @media (min-width: 768px) {
+        
+        .carousel-inner .carousel-item-right.active,
+        .carousel-inner .carousel-item-next {
+        transform: translateX(33.333%);
+        }
+        
+        .carousel-inner .carousel-item-left.active, 
+        .carousel-inner .carousel-item-prev {
+        transform: translateX(-33.333%);
+        }
+    }
+
+    .carousel-inner .carousel-item-right,
+    .carousel-inner .carousel-item-left{ 
+    transform: translateX(0);
+    }
+    .profile-card-4 {
+    height:294px;
+    max-width: 490px;
+    background-color: #FFF;
+    border-radius: 5px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    margin: 10px auto;
+    cursor: pointer;
+    }
+
+    .profile-card-4 img {
+        transition: all 0.25s linear;
+        height:200px;
+        width:auto;
+    }
+
+    .profile-card-4 .profile-content {
+        position: relative;
+        padding: 15px;
+        background-color: #FFF;
+    }
+
+    .profile-card-4 .profile-name {
+        font-weight: bold;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: -70px;
+        color: #FFF;
+        font-size: 17px;
+        background-color:rgba(0, 0, 0, 0.2);
+    }
+
+    .profile-card-4 .profile-name p {
+        font-weight: 600;
+        font-size: 13px;
+        letter-spacing: 1.5px;
+    }
+
+    .profile-card-4 .profile-description {
+        color: #777;
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .profile-card-4 .profile-overview {
+        padding: 15px;
+    }
+
+    .profile-card-4 .profile-overview p {
+        font-size: 10px;
+        font-weight: 600;
+        color: #777;
+    }
+
+    .profile-card-4 .profile-overview h4 {
+        color: #273751;
+        font-weight: bold;
+    }
+
+    .profile-card-4 .profile-content::before {
+        content: "";
+        position: absolute;
+        height: 20px;
+        top: -10px;
+        left: 0px;
+        right: 0px;
+        background-color: #FFF;
+        z-index: 0;
+        transform: skewY(3deg);
+    }
+
+    .profile-card-4:hover img {
+        transform: rotate(5deg) scale(1.1, 1.1);
+        filter: brightness(110%);
+    }
+
+{% endblock style %}
+
+{% block body %}
+     <h1 class="edwards-bottom-banner__title top-banner__title--no-description" style="color:white; font-weight: bold; position: relative;left: 1044px;top: -50px;">Thank you System</h1> 
+    <div class="btn-group" style="position: relative; float: right; right:80px; top:-126px">
+        <button class="btn btn-secondary dropdown-toggle" style="border-radius: 50px;" data-toggle="dropdown">
+          Language 
+        </button>
+        <div class="dropdown-menu">
+          <li><a class="dropdown-item active" href="recognition_test">ENG   <img src="static/english.png" style=" position: relative;left: 40px;"></img></a></li>
+          <li><a class="dropdown-item" href="recognition_kor">KOR   <img src="static/korean.png" style=" position: relative;left: 40px;"></img></a></li>
+        </div>
+    </div>
+<div class="container text-center my-3" style=" position: relative; bottom: 40px;">
+    <h4 class="font-weight-light" style=" position: relative;left: -200px; top: 10px;">Top 5 Senders</h4>
+    <div class="row mx-auto my-auto" style="width:700px; position: relative;left: -200px; top: 0px;">
+        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+            <div class="carousel-inner w-100" role="listbox">
+                <div class="carousel-item active">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:275px;">
+                            <img src="{{sendpics.0.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{topsend.0.empsent}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h4>SENT</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h3>{{sendsent.0}}</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:275px;">
+                            <img src="{{sendpics.1.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{topsend.1.empsent}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h4>SENT</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h3>{{sendsent.1}}</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:275px;">
+                            <img src="{{sendpics.2.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{topsend.2.empsent}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h4>SENT</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h3>{{sendsent.2}}</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:275px;">
+                            <img src="{{sendpics.3.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{topsend.3.empsent}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h4>SENT</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h3>{{sendsent.3}}</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:275px;">
+                            <img src="{{sendpics.4.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{topsend.4.empsent}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h4>SENT</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h3>{{sendsent.4}}</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container text-center my-3"  style=" position: relative; bottom: 40px;">
+    <h4 class="font-weight-light" style=" position: relative;left: 575px; top:-340px">Top 5 Receivers</h4>
+    <div class="row mx-auto my-auto" style="width:700px; position: relative;left: 575px; top: -340px;">
+        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+            <div class="carousel-inner w-100" role="listbox">
+                <div class="carousel-item active">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:275px;">
+                            <img src="{{recpics.0.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{toprec.0.emprecvd}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h4>RECVD</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h3>{{recrec.0}}</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:275px;">
+                            <img src="{{recpics.1.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{toprec.1.emprecvd}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h4>RECVD</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h3>{{recrec.1}}</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:275px;">
+                            <img src="{{recpics.2.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{toprec.2.emprecvd}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h4>RECVD</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h3>{{recrec.2}}</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:275px;">
+                            <img src="{{recpics.3.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{toprec.3.emprecvd}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h4>RECVD</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h3>{{recrec.3}}</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:275px;">
+                            <img src="{{recpics.4.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{toprec.4.emprecvd}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h4>RECVD</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <h3>{{recrec.4}}</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="profile-overview">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container text-center my-3" style=" position: relative; bottom: 40px;">
+    <h4 class="font-weight-light" style=" position: relative;left: -200px; top:-255px">Latest 5 Senders</h4>
+    <div class="row mx-auto my-auto" style="width:700px; position: relative;left: -200px; top:-260px">
+        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+            <div class="carousel-inner w-100" role="listbox">
+                <div class="carousel-item active">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:200px;">
+                            <img src="{{last5pic.0.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{last5.0.empsent}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:200px;">
+                            <img src="{{last5pic.1.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{last5.1.empsent}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:200px;">
+                            <img src="{{last5pic.2.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{last5.2.empsent}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:200px;">
+                            <img src="{{last5pic.3.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{last5.3.empsent}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:200px;">
+                            <img src="{{last5pic.4.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{last5.4.empsent}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container text-center my-3" style=" position: relative; bottom: 40px;">
+    <h4 class="font-weight-light" style=" position: relative;left: 575px; top:-530px">Latest 5 Receivers</h4>
+    <div class="row mx-auto my-auto" style="width:700px; position: relative;left: 575px; top: -535px;">
+        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+            <div class="carousel-inner w-100" role="listbox">
+                <div class="carousel-item active">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:200px;">
+                            <img src="{{last5picR.0.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{last5.0.emprecvd}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:200px;">
+                            <img src="{{last5picR.1.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{last5.1.emprecvd}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:200px;">
+                            <img src="{{last5picR.2.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{last5.2.emprecvd}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:200px;">
+                            <img src="{{last5picR.3.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{last5.3.emprecvd}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="profile-card-4 text-center" style="height:200px;">
+                            <img src="{{last5picR.4.picture}}" class="img img-responsive">
+                            <div class="profile-content">
+                                <div class="profile-name">{{last5.4.emprecvd}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#recipeCarousel').carousel({
+    interval: 3000
+    })
+
+    $('.carousel .carousel-item').each(function(){
+        var minPerSlide = 3;
+        var next = $(this).next();
+        if (!next.length) {
+        next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+        
+        for (var i=0;i<minPerSlide;i++) {
+            next=next.next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            
+            next.children(':first-child').clone().appendTo($(this));
+        }
+    });
+</script>
+{% endblock body %} 
+
