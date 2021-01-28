@@ -85,7 +85,7 @@ def login(request):
     return render(request,'login.html')
 
 def EngEmpTest(request):
-    username1="Farida Pithawala1" #SSO username will come here
+    username="Farida Pithawala1" #SSO username will come here
     thanksent = RnR.objects.filter(empsent=username,badgetype="Thank You").count()
     kudossent = RnR.objects.filter(empsent=username,badgetype="Kudos").count()
     congratsent = RnR.objects.filter(empsent=username,badgetype="Congratulations").count()
@@ -99,7 +99,7 @@ def EngEmpTest(request):
     greatrecvd = RnR.objects.filter(emprecvd=username,badgetype="Great Job").count()
     bravorecvd = RnR.objects.filter(emprecvd=username,badgetype="Bravo").count()
     employeelist = Employee.objects.all()
-    context = {'username1':username1,'bravorecvd':bravorecvd,'greatrecvd':greatrecvd,'customrecvd':customrecvd,'congratrecvd':congratrecvd,'kudosrecvd':kudosrecvd,'thankrecvd':thankrecvd,
+    context = {'username1':username,'bravorecvd':bravorecvd,'greatrecvd':greatrecvd,'customrecvd':customrecvd,'congratrecvd':congratrecvd,'kudosrecvd':kudosrecvd,'thankrecvd':thankrecvd,
                 'bravosent':bravosent,'greatsent':greatsent,'customsent':customsent,'congratsent':congratsent,'kudossent':kudossent,'thanksent':thanksent,'employeelist': employeelist}
     return render(request,'eng_emp_test.html',context)
 

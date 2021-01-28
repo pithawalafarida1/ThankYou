@@ -78,18 +78,22 @@ zoom: 100%;
     {% csrf_token %}
     
     
+    {%for i in loggedinemployee%}
+      <label type="hidden" id="sender_email" name="sender_email">{{i.username}}</label>
+    {%endfor%}
+
     <div id = "div2" class="album py-5 bg-light">
         <div class="row">
-            <div class="col" id="sendercard" style="padding-left: 30px; padding-top: -10px; cursor:pointer;">
+            <!-- <div class="col" id="sendercard" style="padding-left: 30px; padding-top: -10px; cursor:pointer;">
                 <h6 style="color:white; text-align: center">Your Name</h6>
                 
                 <div style="height: 380px;" class="bg-white rounded shadow-sm py-5 px-4"><img id="rightpicture" src="static/sample image.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                   {%for i in loggedinemployee%}
-                  <h5 style="color:black id="sender_name" class="mb-0">{{i.username}}</h5><span id="rightdept" class="small text-uppercase text-muted">Department</span>
+                  <h5 style="color:black id="sender_name" class="mb-0">{{i.username}}</h5><span id="rightdept" class="small text-uppercase text-muted">Department 1</span>
                  {%endfor%}
                 </div>
-            </div>
-            <div class="col" id="badgecard" style="cursor:pointer;">
+            </div> -->
+            <div class="col" id="badgecard" style="padding-left: 30px; padding-top: -10px; cursor:pointer;">
                 <h6 style="color:white; text-align: center;">Badge Selected</h6>
                 <div style="height: 380px; width: 400px;" class="bg-white rounded shadow-sm py-5 px-4"><img id="badgeselected" src="static/Badge.PNG" alt="" width="250" height="auto" style="position: relative; bottom: 28px; left: 50px;" >
                     <span id="custombadgetext" class="small text-uppercase text-muted" style="top: 98px; position: relative; left: -255px;"></span><h5 id="sender_name" class="mb-0">Reason</h5><span id="reason" class="small text-uppercase text-muted">Your Reason for sending this message</span>
@@ -97,8 +101,8 @@ zoom: 100%;
             </div>
             <div class="col" id="receivercard" style="padding-right: 30px; cursor:pointer;">
                 <h6 style="color:white; text-align: center">Recipient's Name</h6>
-                <div style="height: 380px;" class="bg-white rounded shadow-sm py-5 px-4"><img id="rightpicture1" src="static/sample image.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-                    <h5 id="sender_name1" class="mb-0">Employee Name</h5><span id="rightdept1" class="small text-uppercase text-muted">Department</span>
+                <div style="height: 380px;" class="bg-white rounded shadow-sm py-5 px-4"><img id="receiver_picture" src="static/sample image.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                    <h5 id="receiver_name" class="mb-0">Employee Name</h5><span id="receiver_email" class="small text-uppercase text-muted">Department R</span>
                 </div>
             </div>
         </div>
@@ -109,11 +113,11 @@ zoom: 100%;
     </div>
 
     {% comment %} Modals Start {% endcomment %}
-       <div class="modal fade" id="recipientmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <!-- <div class="modal fade" id="recipientmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Select Your Name</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Select Your Name s</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -124,7 +128,7 @@ zoom: 100%;
                         </div>
                         <div class="p-4">
                             <div  class = "row" style="margin-left: -10px; margin-right: 0px;">
-                              <!-- <div id="list-example" class="list-group" style="float:left; margin-left: -13px;">
+                               <div id="list-example" class="list-group" style="float:left; margin-left: -13px;">
                                     <a class="active" href="#A" style="color: black; font-size: 18px">A</a>
                                     <a class="" href="#B" style="color: black; font-size: 18px">B</a>
                                     <a class="" href="#C" style="color: black; font-size: 18px">C</a>
@@ -151,14 +155,14 @@ zoom: 100%;
                                     <a class="" href="#X" style="color: black; font-size: 18px">X</a>
                                     <a class="" href="#Y" style="color: black; font-size: 18px">Y</a>
                                     <a class="" href="#Z" style="color: black; font-size: 18px">Z</a>
-                                </div>-->
+                                </div> 
                                 <div data-spy="scroll" data-target="#list-example" class="scrollspy-example col" data-offset="0" style = "height:700px; overflow:auto; margin-left:-17px; right: -23px; left: 23px;" >
                                     <div class="container" id="searchcont">
                                         <div class="row text-center" id="myItems">
                                             {% for i in Emplist %}
                                                 <div id="{{i.username.0}}" class="card col-xl-4 col-sm-4 mb-4">
                                                     <div class="card-body rounded shadow-sm py-5 px-4" onclick="cardcopy({{forloop.counter0}})"><img id="picture-{{forloop.counter0}}" src="static/Stella.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm emppicture">
-                                                        <h5 class="mb-0 empname">{{i.username}}</h5><span class="small text-uppercase text-muted empdept">{{i.dept}}</span>
+                                                        <h5 class="mb-0 empname">{{i.username}} Se</h5><span class="small text-uppercase text-muted empdept">{{i.dept}}</span>
                                                     </div>
                                                 </div>
                                             {% endfor %}
@@ -170,7 +174,7 @@ zoom: 100%;
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>  -->
         <div class="modal fade" id="badgemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -235,7 +239,7 @@ zoom: 100%;
             </div>
           </div>
         </div>
-        <div class="modal fade" id="receivermodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal fade" id="receivermodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -246,11 +250,11 @@ zoom: 100%;
                     </div>
                     <div class="modal-body">
                         <div class="input-group mb-6" style="margin-bottom: 0px">
-                            <input type="text" id="myFilter1" class="form-control" onkeyup="myFunction1()" placeholder="Search Employee Name">
+                            <input type="text" id="myFilter1" class="form-control" onkeyup="search()" placeholder="Search Employee Name">
                         </div>
                         <div class="p-4">
                             <div  class = "row" style="margin-left: -10px; margin-right: 0px;">
-                                <!--<div id="list-example1" class="list-group" style="float:left; margin-left: -13px;">
+                               <!-- <div id="list-example1" class="list-group" style="float:left; margin-left: -13px;">
                                   {%for i in Emplist%}
                                     <a class="active" href="#MA" style="color: black; font-size: 18px">{{i.username}}</a>
                                     <a class="" href="#MB" style="color: black; font-size: 18px">B</a>
@@ -279,7 +283,7 @@ zoom: 100%;
                                     <a class="" href="#MY" style="color: black; font-size: 18px">Y</a>
                                     <a class="" href="#MZ" style="color: black; font-size: 18px">Z</a>
                                   {%endfor%}
-                                </div>-->
+                                </div> -->
                                 <div data-spy="scroll" data-target="#list-example1" class="scrollspy-example col" data-offset="0" style = "height:700px; overflow:auto; margin-left:-17px; right: -23px; left: 23px;" >
                                     <div class="container" id="searchcont">
                                         <div class="row text-center" id="myItems1">
@@ -287,10 +291,10 @@ zoom: 100%;
                                             {% for i in Emplist %}
                                                 <div id="M{{i.username.0}}" class="card col-xl-4 col-sm-4 mb-4">
                                                   
-                                                    <div class="card-body rounded shadow-sm py-5 px-4" onclick="cardcopy1({{forloop.counter0}})" ><img id="picture1-{{forloop.counter0}}" src="static/Stella.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm emppicture1">
+                                                    <div class="card-body rounded shadow-sm py-5 px-4" onclick="send_email({{forloop.counter0}})" ><img id="picture1-{{forloop.counter0}}" src="static/Stella.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm emppicture1">
                                                       <form id=Myform method="POST">
                                                         {% csrf_token %}
-                                                         <h5 class="mb-0 empname1">{{i.username}} </h5><span class="small text-uppercase text-muted empdept1" >{{i.dept}}</span>
+                                                         <h5 class="mb-0 receiver_name">{{i.username}} </h5><span class="small text-uppercase text-muted receiver_email" >{{i.dept}}</span>
                                                       </form>
                                                     </div>
                                                   
@@ -305,7 +309,7 @@ zoom: 100%;
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
         
     {% comment %} Modals End {% endcomment %}
 
@@ -314,16 +318,16 @@ zoom: 100%;
         $('#recipientmodal').modal('toggle');
     });
 
-    $("#sendercard").click(function(){
-        $('#recipientmodal').modal('toggle');
-    });
+    // $("#sendercard").click(function(){
+    //     $('#recipientmodal').modal('toggle');
+    // });
 
     $("#badgecard").click(function(){
-      if($("#sender_name").text()=="Employee Name")
-      {
-        swal("Error!", "Please select employee's name", "error");
-      }
-      else
+      // if($("#sender_name").text()=="Employee Name")
+      // {
+      //   swal("Error!", "Please select employee's name", "error");
+      // }
+      // else
       {
         $('#badgemodal').modal('toggle');
       }
@@ -341,7 +345,7 @@ zoom: 100%;
     });
 </script>
 
-<script>
+<!-- <script>
     function myFunction() {
         var input, filter, cards, cardContainer, h5, title, i;
         input = document.getElementById("myFilter");
@@ -357,9 +361,9 @@ zoom: 100%;
             }
         }
     }
-</script>
+</script> -->
 <script>
-    function myFunction1() {
+    function search() {
         var input, filter, cards, cardContainer, h5, title, i;
         input = document.getElementById("myFilter1");
         filter = input.value.toUpperCase();
@@ -376,63 +380,42 @@ zoom: 100%;
     }
 </script>
 
-<script>
+<!-- <script>
     function cardcopy(i){
-      console.log("entered");
       var picture = $("#picture-"+i).attr("src");
-      var name = document.getElementsByClassName("empname");
-      name1 = name[i].innerText;
+      var test_name= document.getElementById("sender_email").innerText;
+      console.log(test_name)
+
       var dept = document.getElementsByClassName("empdept");
       dept1 = dept[i].innerText;
-      console.log(name1);
-      $("#sender_name").text(name1);
+
+      
       $("#rightdept").text(dept1);
       $("#rightpicture").attr("src",picture);
       $('#recipientmodal').modal('toggle');
       $('#badgemodal').modal('toggle');
     }
-</script>
+</script> -->
 
 <script>
-
-    
-
-
-    function cardcopy1(i){
+    function send_email(i){
       console.log("entered");
       var picture = $("#picture1-"+i).attr("src");
       console.log(picture);
-      var name = document.getElementsByClassName("empname1");
+      var name = document.getElementsByClassName("receiver_name");
       name1 = name[i].innerText;
-      var dept = document.getElementsByClassName("empdept1");
+      var dept = document.getElementsByClassName("receiver_email");
       dept1 = dept[i].innerText;
       console.log(name1);
-      $("#sender_name1").text(name1);
-      $("#rightdept1").text(dept1);
-      $("#rightpicture1").attr("src",picture);
+      var test_name= document.getElementById("sender_email").innerText;
+      console.log(test_name)
+
+      $("#sender_name").text(test_name);
+      $("#receiver_name").text(name1);
+      $("#receiver_email").text(dept1);
+      $("#receiver_picture").attr("src",picture);
       $('#receivermodal').modal('toggle');
-      // document.getElementById("Myform").submit();
-      // console.log("Well done!")
-      // $.ajax({
-      //       type:'POST',
-      //       url: '127.0.0.1:8000/make_badges_table/',
-      //       dataType: 'json',
-      //       data:{
-      //           Received:name1,
-      //           badge_picture:picture,
-      //           csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
-      //       },
-      //       success: function(){
-      //         console.log("success log");
-      //         swal("Success!","Your Message has been sent!","success",{buttons: false,timer: 2000}).then((value) => {
-      //             window.location.reload();
-      //            });
-      //       },
-      //       error: function(){
-      //         console.log("error");
-      //         swal("Error!", "error has occured", "error");
-      //       }
-      //   });
+      
       rnraddfunc();
      }
 </script>
@@ -494,7 +477,7 @@ zoom: 100%;
 <script>
       function rnraddfunc(){
         console.log("Hello!")
-        var empsent1 = $("#sender_name1").text();
+        var empsent1 = $("#receiver_name").text();
         var source = $("#badgeselected").attr("src");
         if(source=="static/kudos.png"){
           var badgetype1 = "Kudos";

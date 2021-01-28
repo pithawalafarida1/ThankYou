@@ -317,8 +317,8 @@
                     <div class="row text-center">
                       {% for i in employeelist %}
                         <div id="V{{i.name.0}}" class="card col-xl-4 col-sm-4 mb-4">
-                            <div class="card-body rounded shadow-sm py-5 px-4" onclick="cardcopy1({{forloop.counter0}})"><img id="picture1-{{forloop.counter0}}" src="{{i.picture}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm emppicture">
-                                <h5 class="mb-0 empname1">{{i.name}}</h5><span class="small text-uppercase text-muted empdept1">{{i.dept}}</span>
+                            <div class="card-body rounded shadow-sm py-5 px-4" onclick="send_email({{forloop.counter0}})"><img id="picture1-{{forloop.counter0}}" src="{{i.picture}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm emppicture">
+                                <h5 class="mb-0 receiver_name">{{i.name}}</h5><span class="small text-uppercase text-muted receiver_email">{{i.dept}}</span>
                             </div>
                         </div>
                       {% endfor %}
@@ -396,13 +396,13 @@
 
     <!--Vendor Functions Start-->
     <script>
-    function cardcopy1(i){
+    function send_email(i){
       console.log("entered");
       var picture = $("#picture1-"+i).attr("src");
       console.log(picture);
-      var name = document.getElementsByClassName("empname1");
+      var name = document.getElementsByClassName("receiver_name");
       name1 = name[i].innerText;
-      var dept = document.getElementsByClassName("empdept1");
+      var dept = document.getElementsByClassName("receiver_email");
       dept1 = dept[i].innerText;
       console.log(name1);
       $("#sender_name").text(name1);

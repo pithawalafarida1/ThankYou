@@ -56,8 +56,8 @@
             </div>
             <div class="col" id="receivercard" style="padding-right: 30px; cursor:pointer;">
                 <h6 style="color:white; text-align: center">당신의 이름</h6>
-                <div style="height: 380px;" class="bg-white rounded shadow-sm py-5 px-4"><img id="rightpicture1" src="static/sample image.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-                    <h5 id="sender_name1" class="mb-0">Your Name</h5><span id="rightdept1" class="small text-uppercase text-muted">Department</span>
+                <div style="height: 380px;" class="bg-white rounded shadow-sm py-5 px-4"><img id="receiver_picture" src="static/sample image.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                    <h5 id="receiver_name" class="mb-0">Your Name</h5><span id="receiver_email" class="small text-uppercase text-muted">Department</span>
                 </div>
             </div>
         </div>
@@ -239,8 +239,8 @@
                                         <div class="row text-center" id="myItems1">
                                             {% for i in employeelist %}
                                                 <div id="M{{i.name.0}}" class="card col-xl-4 col-sm-4 mb-4">
-                                                    <div class="card-body rounded shadow-sm py-5 px-4" onclick="cardcopy1({{forloop.counter0}})"><img id="picture1-{{forloop.counter0}}" src="{{i.picture}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm emppicture1">
-                                                        <h5 class="mb-0 empname1">{{i.name}}</h5><span class="small text-uppercase text-muted empdept1">{{i.dept}}</span>
+                                                    <div class="card-body rounded shadow-sm py-5 px-4" onclick="send_email({{forloop.counter0}})"><img id="picture1-{{forloop.counter0}}" src="{{i.picture}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm emppicture1">
+                                                        <h5 class="mb-0 receiver_name">{{i.name}}</h5><span class="small text-uppercase text-muted receiver_email">{{i.dept}}</span>
                                                     </div>
                                                 </div>
                                             {% endfor %}
@@ -340,18 +340,18 @@
 </script>
 
 <script>
-    function cardcopy1(i){
+    function send_email(i){
       console.log("entered");
       var picture = $("#picture1-"+i).attr("src");
       console.log(picture);
-      var name = document.getElementsByClassName("empname1");
+      var name = document.getElementsByClassName("receiver_name");
       name1 = name[i].innerText;
-      var dept = document.getElementsByClassName("empdept1");
+      var dept = document.getElementsByClassName("receiver_email");
       dept1 = dept[i].innerText;
       console.log(name1);
-      $("#sender_name1").text(name1);
-      $("#rightdept1").text(dept1);
-      $("#rightpicture1").attr("src",picture);
+      $("#receiver_name").text(name1);
+      $("#receiver_email").text(dept1);
+      $("#receiver_picture").attr("src",picture);
       $('#receivermodal').modal('toggle');
       rnraddfunc();
     }
@@ -413,7 +413,7 @@
 
 <script>
       function rnraddfunc(){
-        var empsent1 = $("#sender_name1").text();
+        var empsent1 = $("#receiver_name").text();
         var source = $("#badgeselected").attr("src");
         if(source=="static/kudos.png"){
           var badgetype1 = "Kudos";
